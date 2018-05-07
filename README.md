@@ -1,5 +1,4 @@
 # ExceptionNotifier
----
 To usługa Windows, która pozwala na sprawdzanie czy w podanej tabeli zostały zapisane nowe rekordy, jeżeli tak to wysyła je do zdefiniowanych klientów (slack, e-mail). Dodatkowo można w niej ustawiać filtrowanie i agregowanie wiadomości oraz czas życia usługi.
 
 # Requirements
