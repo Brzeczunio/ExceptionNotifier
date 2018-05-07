@@ -1,11 +1,11 @@
-#Queris.ExceptionNotifier
+# ExceptionNotifier
 ---
 To usługa Windows, która pozwala na sprawdzanie czy w podanej tabeli zostały zapisane nowe rekordy, jeżeli tak to wysyła je do zdefiniowanych klientów (slack, e-mail). Dodatkowo można w niej ustawiać filtrowanie i agregowanie wiadomości oraz czas życia usługi.
 
-#Requirements
+# Requirements
 1.	.NET Framework 4.6.1
 
-#How To Use
+# How To Use
 Projekt posiada pięć plików kofiguracyjnych:
 
 1.	App.config
@@ -18,7 +18,7 @@ Do szyfrowania hasła w konfiguracji maila trzeba użyć:
 
 1.	CryptoEncoder.exe
 
-#Configuration
+# Configuration
 
 1. App.config
 ```
@@ -214,14 +214,14 @@ Tworzony jest tylko jeden plik na dzień dla każdego, gdzie maksymalny rozmiar 
 }
 ```
 
-#Installation
+# Installation
 
 Żeby zainstalować usługę należy uruchomić konsolę, następnie wpisać np.
 ```
 C:/ExceptionNotifier/ExceptionNotifier.exe install
 ```
 
-#Uninstallation
+# Uninstallation
 
 Żeby odinstalować usługę należy uruchomić konsolę, następnie wpisać np.
 ```
