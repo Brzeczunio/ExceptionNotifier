@@ -1,0 +1,6 @@
+﻿{
+  "ERROR": "danger",
+  "WARN": "warning",
+  "FATAL": "#000000",
+  "DEFAULT": "#439FE0"
+}

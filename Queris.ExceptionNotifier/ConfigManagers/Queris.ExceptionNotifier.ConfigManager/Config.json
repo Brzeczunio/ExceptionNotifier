@@ -1,0 +1,147 @@
+{
+  "readers": [
+    {
+      "readerType": "dbReader",
+      "readerId": 1,
+      "readerName": "do odczytu danych z bazy: X",
+      "logicalName": "X",
+      "columnNames": [ "Id", "MessageType", "ApplicationName", "CreationDate", "CreationUser", "Exception", "Message" ],
+      "initialCounter": 0,
+      "connectionString": "data source=192.168.1.2;initial catalog=X;persist security info=True;user id=sa;password=asdasd;",
+      "readerAdditionalParams": {
+        "schema": "dbo",
+        "tableName": "Logs",
+        "messageTypeColumnName": "MessageType",
+        "orderByColumnName": "CreationDate"
+      }
+    },
+    {
+      "readerType": "dbReader",
+      "readerId": 2,
+      "readerName": "do odczytu danych z bazy: X2",
+      "logicalName": "X2",
+      "columnNames": [ "Id", "MessageType", "ApplicationName", "CreationDate", "CreationUser", "Exception", "Message" ],
+      "initialCounter": 0,
+      "connectionString": "data source=192.168.1.2;initial catalog=X2;persist security info=True;user id=sa;password=asdasd;",
+      "readerAdditionalParams": {
+        "schema": "dbo",
+        "tableName": "Logs",
+        "messageTypeColumnName": "MessageType",
+        "orderByColumnName": "CreationDate"
+      }
+    },
+    {
+      "readerType": "pingReader",
+      "readerId": 3,
+      "logicalName": "X",
+      "readerAdditionalParams": {
+        "StartTime": "07:00:00",
+        "Occurs": "2",
+        "Interval": "6:00:00"
+      }
+    },
+    {
+      "readerType": "exitReader",
+      "readerId": 4,
+      "logicalName": "X"
+    }
+    //{
+    //  "readerType": "fileReader",
+    //  "readerId": 3,
+    //  "readerName": "do odczytu danych z pliku x",
+    //  "logicalName": "",
+    //  "columnNames": [ "Id", "MessageType", "ApplicationName", "CreationDate", "CreationUser", "Exception", "Message" ],
+    //  "initialCounter": 0,
+    //  "readerAdditionalParams": {
+    //    "fileName": "abc",
+    //    "tableName": "Logs"
+    //  }
+    //}
+  ],
+  "clients": [
+    {
+      "clientType": "slackClient",
+      "clientId": 1,
+      "clientAdditionalParams": {
+        "userName": null,
+        "channel": null,
+        "extractTheHeader": true,
+        "url": "https://hooks.slack.com/services/T45HP07HP",
+        "configPath": "C:\\ExceptionNotifier\\SlackConfig.json"
+      }
+    },
+    //{
+    //  "clientType": "fileClient",
+    //  "clientId": 2,
+    //  "clientAdditionalParams": {
+    //    "filename": "moj-plik.txt"
+    //  }
+    //},
+    {
+      "clientType": "slackClient",
+      "clientId": 3,
+      "clientAdditionalParams": {
+        "userName": null,
+        "channel": "pinglivingexceptions",
+        "extractTheHeader": false,
+        "url": "https://hooks.slack.com/services/T45HP07HP",
+        "configPath": "C:\\ExceptionNotifier\\SlackConfig.json"
+      }
+    },
+    {
+      "clientType": "MailClient",
+      "clientId": 4,
+      "clientAdditionalParams": {
+        "configPath": "C:\\ExceptionNotifier\\MailConfig.json"
+      }
+    }
+  ],
+  "filters": [
+    {
+      "filterId": 1,
+      "filterParams": [
+        {
+          "columnName": "Message",
+          "patterns": [ "Start DataCollector", "Wyst¹pi³ nieobs³u¿ony b³¹d", "null", "System.ServiceModel.EndpointNotFoundException", "TEST", "Test" ],
+          "matchPatternOperator":  "=" 
+        },
+        {
+          "columnName": "MessageType",
+          "patterns": [ "WARN", "INFO" ]
+        }
+      ]
+    }
+  ],
+  "aggregators": [
+    {
+      "aggregatorId": 1,
+      "aggregationParams": [
+        {
+          "messageAggregateColumnNames": [ "ApplicationName", "Message" ]
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "clientId": 1,
+      "readerId": [ 1, 2 ]
+    },
+    {
+      "clientId": 3,
+      "readerId": [ 3, 4 ]
+    }
+  ],
+  "filterRules": [
+    {
+      "filterId": 1,
+      "readerId": [ 1, 2 ]
+    }
+  ],
+  "aggregatorRules": [
+    {
+      "aggregatorId": 1,
+      "readerId": [ 1, 2 ]
+    }
+  ]
+}

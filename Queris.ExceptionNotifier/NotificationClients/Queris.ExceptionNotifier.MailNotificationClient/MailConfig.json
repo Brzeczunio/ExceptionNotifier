@@ -1,0 +1,14 @@
+﻿{
+  "Host": "owa.poczta.pl",
+  "Port": 25,
+  "EnableSsl": true,
+  "UserName": "exceptionnotifier",
+  "Password": "M@il$ervice!1",
+  "From": "ExceptionNotifier@poczta.pl",
+  "To": [ "dbrzeczek@poczta.pl", "serwis@poczta.pl" ],
+  "CC": [ "lista adresów" ],
+  "Bcc": [ "lista adresów" ],
+  "Subject": "ExceptionNotifier",
+  "Body": "Na bazie został zalogowany $Message.Name$: $Message.Value$",
+  "IsBodyHtml": true
+}

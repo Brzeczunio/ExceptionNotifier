@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8EAFF07E-3806-43FD-BDF2-625A6DECB511}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Queris.ExceptionNotifier.App</RootNamespace>
+    <AssemblyName>Queris.ExceptionNotifier.App</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\Params.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\ConfigProvider.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Queris.ExceptionNotifier.Common\Queris.ExceptionNotifier.Common.csproj">
+      <Project>{F6C7D4F1-10E3-4AB3-99DE-D6C53CBD2823}</Project>
+      <Name>Queris.ExceptionNotifier.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Queris.ExceptionNotifier.Serializers.Json\Queris.ExceptionNotifier.Serializers.Json.csproj">
+      <Project>{990D6340-E6B6-46B3-8DC1-7FFD2542CB57}</Project>
+      <Name>Queris.ExceptionNotifier.Serializers.Json</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Queris.ExceptionNotifier.Serializers\Queris.ExceptionNotifier.Serializers.csproj">
+      <Project>{7FB8D862-E69B-4416-9A29-CF99FD70352D}</Project>
+      <Name>Queris.ExceptionNotifier.Serializers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ConfigManagers\Queris.ExceptionNotifier.ConfigManager\Queris.ExceptionNotifier.ConfigManager.csproj">
+      <Project>{EB438E31-8F45-4C0A-B045-CAA4A64DE613}</Project>
+      <Name>Queris.ExceptionNotifier.ConfigManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DataReaders\Queris.ExceptionNotifier.PrepareDataReaders\Queris.ExceptionNotifier.PrepareDataReaders.csproj">
+      <Project>{8209B026-D1E3-4C69-884D-9C7BB9F3086A}</Project>
+      <Name>Queris.ExceptionNotifier.PrepareDataReaders</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Loggers\Queris.ExceptionNotifier.Log4netLogger\Queris.ExceptionNotifier.Log4netLogger.csproj">
+      <Project>{B6893522-3757-46CE-8F6A-27E9CDEE5C57}</Project>
+      <Name>Queris.ExceptionNotifier.Log4netLogger</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\NotificationClients\Queris.ExceptionNotifier.ClientsManager\Queris.ExceptionNotifier.ClientsManager.csproj">
+      <Project>{688976A3-B68C-474D-859B-5966CDDBFFA5}</Project>
+      <Name>Queris.ExceptionNotifier.ClientsManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\NotificationClients\Queris.ExceptionNotifier.PrepareClients\Queris.ExceptionNotifier.PrepareClients.csproj">
+      <Project>{C4482119-02BA-4C6A-A16A-109156151ACF}</Project>
+      <Name>Queris.ExceptionNotifier.PrepareClients</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\NotifierProcessors\Queris.ExceptionNotifier.HostFactoryNotifierProcessor\Queris.ExceptionNotifier.HostFactoryNotifierProcessor.csproj">
+      <Project>{CCAE7F69-E11E-4CD1-A863-5B6D7239D50A}</Project>
+      <Name>Queris.ExceptionNotifier.HostFactoryNotifierProcessor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\NotifierProcessors\Queris.ExceptionNotifier.PrepareNotifierProcessors\Queris.ExceptionNotifier.PrepareNotifierProcessors.csproj">
+      <Project>{CFA2D97A-5845-4447-B867-5E0F8DC5B83B}</Project>
+      <Name>Queris.ExceptionNotifier.PrepareNotifierProcessors</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Validators\Queris.ExceptionNotifier.AggregatorsValidator\Queris.ExceptionNotifier.AggregatorsValidator.csproj">
+      <Project>{BE08FC27-4AD4-4375-A3DF-77A6653B1201}</Project>
+      <Name>Queris.ExceptionNotifier.AggregatorsValidator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Validators\Queris.ExceptionNotifier.FiltersValidator\Queris.ExceptionNotifier.FiltersValidator.csproj">
+      <Project>{2372683E-67F8-4E1F-8D29-B05FE60B2AA4}</Project>
+      <Name>Queris.ExceptionNotifier.FiltersValidator</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy "$(SolutionDir)packages\Simple.Data.Ado.0.19.0.0\lib\net40\*.dll" "$(TargetDir)" /Y /E /D
+xcopy "$(SolutionDir)packages\Simple.Data.SqlServer.0.19.0.0\lib\net40\*.dll" "$(TargetDir)" /Y /E /D</PostBuildEvent>
+  </PropertyGroup>
+</Project>

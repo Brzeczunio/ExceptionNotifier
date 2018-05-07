@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8209B026-D1E3-4C69-884D-9C7BB9F3086A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Queris.ExceptionNotifier.PrepareDataReaders</RootNamespace>
+    <AssemblyName>Queris.ExceptionNotifier.PrepareDataReaders</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstract\APrepareDataReaderFactory.cs" />
+    <Compile Include="Abstract\IPrepareDataReader.cs" />
+    <Compile Include="PrepareDatabaseDataReader.cs" />
+    <Compile Include="Enums\DataReaderType.cs" />
+    <Compile Include="PrepareDataReaderFactory.cs" />
+    <Compile Include="PrepareExitReader.cs" />
+    <Compile Include="PreparePingLivingReader.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Queris.ExceptionNotifier.Common\Queris.ExceptionNotifier.Common.csproj">
+      <Project>{F6C7D4F1-10E3-4AB3-99DE-D6C53CBD2823}</Project>
+      <Name>Queris.ExceptionNotifier.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ConfigManagers\Queris.ExceptionNotifier.ConfigManager\Queris.ExceptionNotifier.ConfigManager.csproj">
+      <Project>{EB438E31-8F45-4C0A-B045-CAA4A64DE613}</Project>
+      <Name>Queris.ExceptionNotifier.ConfigManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Queris.ExceptionNotifier.DatabaseDataReader\Queris.ExceptionNotifier.DatabaseDataReader.csproj">
+      <Project>{6C5754F2-59B3-4807-B26E-1E425DFF6739}</Project>
+      <Name>Queris.ExceptionNotifier.DatabaseDataReader</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Queris.ExceptionNotifier.ExitReader\Queris.ExceptionNotifier.ExitReader.csproj">
+      <Project>{95C9302B-A9AA-4840-9F18-F663CDCC8FAD}</Project>
+      <Name>Queris.ExceptionNotifier.ExitReader</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Queris.ExceptionNotifier.PingReader\Queris.ExceptionNotifier.PingReader.csproj">
+      <Project>{3B8D5745-D6DB-4801-A8DE-58ACB6C98FD4}</Project>
+      <Name>Queris.ExceptionNotifier.PingReader</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

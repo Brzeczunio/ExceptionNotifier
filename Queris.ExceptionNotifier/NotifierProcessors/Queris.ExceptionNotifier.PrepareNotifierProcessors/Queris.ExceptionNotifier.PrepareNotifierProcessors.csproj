@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CFA2D97A-5845-4447-B867-5E0F8DC5B83B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Queris.ExceptionNotifier.PrepareNotifierProcessors</RootNamespace>
+    <AssemblyName>Queris.ExceptionNotifier.PrepareNotifierProcessors</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstract\APrepareNotifierProcessorFactory.cs" />
+    <Compile Include="Abstract\IPrepareNotifierProcessor.cs" />
+    <Compile Include="Enums\NotifierProcessorType.cs" />
+    <Compile Include="PrepareHostFactoryNotifierProcessor.cs" />
+    <Compile Include="PrepareNotifierProcessorDecorator.cs" />
+    <Compile Include="PrepareNotifierProcessorFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Queris.ExceptionNotifier.Common\Queris.ExceptionNotifier.Common.csproj">
+      <Project>{F6C7D4F1-10E3-4AB3-99DE-D6C53CBD2823}</Project>
+      <Name>Queris.ExceptionNotifier.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Queris.ExceptionNotifier.HostFactoryNotifierProcessor\Queris.ExceptionNotifier.HostFactoryNotifierProcessor.csproj">
+      <Project>{CCAE7F69-E11E-4CD1-A863-5B6D7239D50A}</Project>
+      <Name>Queris.ExceptionNotifier.HostFactoryNotifierProcessor</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
